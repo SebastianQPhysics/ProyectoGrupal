@@ -15,7 +15,8 @@
                         <div class="header-top-right">
                             <a>
                                 <?php
-                                    echo "Usuario: ";
+                                    $correo=$_SESSION['USUARIO'];
+                                    echo "Usuario: ",$correo;
                                 ?>
                             </a>
                         </div>
@@ -23,7 +24,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-4">
                         <div class="header-top-right text-right">
                             <ul>
-                                <a href="login.php">Cerrar sesion</a>
+                                <a href="index.php">Cerrar sesion</a>
                             </ul>
                         </div>
                     </div>
@@ -86,55 +87,58 @@
                 </thead>
                 <?php 
                     include ("conexion.php");
-                    foreach($conexion->query("SELECT * FROM `clase`") as $row) {
+                    // $correo=$_SESSION['USUARIO'];
+                    foreach($conexion->query("SELECT materia,descripcion,fecha,id FROM clase WHERE correo='$correo'") as $row) {
                 ?>
                 <tr>
                     <form action="eliminarClase.php" method="POST">
                         <th><?php echo $row["id"];?></th>
                         <th><?php echo $row["materia"];?></th>
-                        <th><?php echo $row["descrpcion"];?></th>
+                        <th><?php echo $row["descripcion"];?></th>
                         <th><?php echo $row["fecha"];?></th>
                         <th>
                             <input type="hidden" name="id" value="<?php echo $row["id"];?>">       <!-- Guardar el rut para por si lo van a eliminar  -->
                             <button type="submit" ><img src="icono/eliminar.png" ></img></button>
-                            <button type="hidden" data-toggle="modal" data-target="#modificar"> <img src="icono/modificar.png" ></button>
-                            <form action="modificarDB">
-                                <div class="modal fade" id="modificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Modificar Clase</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <form action="modificarDB.php" method="POST">
-                                                <div class="modal-body">
-                                                    <p>
-                                                        <label for="Materia">Materia:</label>
-                                                        <input type="text" name="materia" id="materia" value="<?php echo $row["materia"];?>" required>
-                                                    </p>
-                                                    <p>
-                                                        <label for="Fecha">Fecha:</label>
-                                                        <input type="date" name="fecha" id="fecha" value="<?php echo $row["fecha"];?>" required>
-                                                    </p>
-                                                    <p>
-                                                        <label for="Descripcion">Discripcion de la clase:</label>
-                                                        <input type="text" name="descripcion" value="<?php echo $row["descripcion"];?>" required>
-                                                    </p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                    <button type="submit" class="btn btn-primary">Confirmar</button>
-                                                </div>
-                                            </form> 
+                            
+                    </form>
+                            <img data-toggle="modal" data-target="#modificar" src="icono/modificar.png" >
+            
+                            <div class="modal fade" id="modificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modificar Clase</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </div>
+                                        <form action="modificarDB.php" method="POST">
+                                            <div class="modal-body">
+                                                <p>
+                                                    <label for="Materia">Materia:</label>
+                                                    <input type="text" name="materia" id="materia" value="<?php echo $row["materia"];?>" required>
+                                                </p>
+                                                <p>
+                                                    <label for="Fecha">Fecha:</label>
+                                                    <input type="date" name="fecha" id="fecha" value="<?php echo $row["fecha"];?>" format required>
+                                                </p>
+                                                <p>
+                                                    <label for="Descripcion">Discripcion de la clase:</label>
+                                                    <input type="text" name="descripcion" value="<?php echo $row["descripcion"];?>" required>
+                                                </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                <button type="submit" class="btn btn-primary">Confirmar</button>
+                                            </div>
+                                        </form> 
+                                            </form> 
+                                        </form> 
                                     </div>
                                 </div>
-                            </form>
-
+                            </div>
                         </th>
-                    </form>
+                    
                 </tr>
                 <?php } ?>
             </table>

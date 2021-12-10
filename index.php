@@ -23,7 +23,7 @@
                 <span class="login-form-title">LOGIN</span>
                 
                 <div class="wrap-input100" data-validate = "Usuario incorrecto">
-                    <input class="input100" type="text" id="usuario" name="usuario" placeholder="Usuario">
+                    <input class="input100" type="email" id="usuario" name="usuario" placeholder="Usuario">
                     <span class="focus-efecto"></span>
                 </div>
                 

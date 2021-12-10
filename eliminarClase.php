@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $id=$_POST["id"];
     include ("conexion.php");
     $query="DELETE FROM clase WHERE id=$id";
