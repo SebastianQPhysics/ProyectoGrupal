@@ -49,7 +49,7 @@
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="anadirBD.php" method="POST">
+                    <form action="anadirClase.php" method="POST">
                         <div class="modal-body">
                             <p>
                                 <label for="Materia">Materia:</label>
@@ -112,7 +112,7 @@
                                             <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <form action="modificarDB.php" method="POST">
+                                        <form action="ModificarClase.php" method="POST">
                                             <div class="modal-body">
                                                 <p>
                                                     <label for="Materia">Materia:</label>
@@ -128,6 +128,7 @@
                                                 </p>
                                             </div>
                                             <div class="modal-footer">
+                                                <input type="hidden" name="id" value="<?php echo $row["id"];?>">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                                 <button type="submit" class="btn btn-primary">Confirmar</button>
                                             </div>
