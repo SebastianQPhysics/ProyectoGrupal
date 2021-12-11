@@ -66,7 +66,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Añadir</button>
+                            <button type="submit" class="btn btn-primary" name="btnEnviar">Añadir</button>
                         </div>
                     </form> 
                 </div>
@@ -98,10 +98,10 @@
                         <th><?php echo $row["fecha"];?></th>
                         <th>
                             <input type="hidden" name="id" value="<?php echo $row["id"];?>">       <!-- Guardar el rut para por si lo van a eliminar  -->
-                            <button type="submit" ><img src="icono/eliminar.png" ></img></button>
+                            <button type="submit" class="botonAccion"><img src="icono/eliminar.png" ></img></button>
                             
                     </form>
-                            <img data-toggle="modal" data-target="#modificar" src="icono/modificar.png" >
+                    <button type="submit" class="botonAccion"><img src="icono/modificar.png" ></img></button>
             
                             <div class="modal fade" id="modificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
