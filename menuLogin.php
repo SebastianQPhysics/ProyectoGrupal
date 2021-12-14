@@ -31,7 +31,6 @@
                 </div>
             </div>
         </header>
-        
         <div class="principal">
             <h2>Contenido Principal</h2>
         </div>
@@ -39,7 +38,7 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#anadir"> Añadir</button>
         </div>
         
-        <!-- boton para añadir -->
+        <!-- Ventana para añadir -->
         <div class="modal fade" id="anadir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -51,18 +50,30 @@
                     </div>
                     <form action="anadirClase.php" method="POST">
                         <div class="modal-body">
-                            <p>
-                                <label for="Materia">Materia:</label>
-                                <input type="text" name="materia" id="materia" required>
-                            </p>
-                            <p>
-                                <label for="Fecha">Fecha:</label>
-                                <input type="date" name="fecha" id="fecha" value="01-01-2020" required>
-                            </p>
-                            <p>
-                                <label for="Descripcion">Discripcion de la clase:</label>
-                                <input type="text" name="descripcion" required>
-                            </p>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <label for="Materia">Materia:</label>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                    <input type="text" name="materia" id="materia" required>
+                                </div>    
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <label for="Fecha">Fecha:</label>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                    <input type="date" name="fecha" id="fecha" value="01-01-2020" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <label for="Descripcion">Discripcion de la clase:</label>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                    <input type="text" name="descripcion" required>
+                                </div>
+                            </div>    
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -101,8 +112,9 @@
                             <button type="submit" class="botonAccion"><img src="icono/eliminar.png" ></img></button>
                             
                     </form>
-                    <button type="submit" class="botonAccion"><img src="icono/modificar.png" ></img></button>
-            
+
+                    <!-------------------- Modificar --------------------->
+                    <button type="buttom" class="botonAccion" data-toggle="modal" data-target="#modificar"><img src="icono/modificar.png" ></img></button>
                             <div class="modal fade" id="modificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -114,18 +126,30 @@
                                         </div>
                                         <form action="ModificarClase.php" method="POST">
                                             <div class="modal-body">
-                                                <p>
-                                                    <label for="Materia">Materia:</label>
-                                                    <input type="text" name="materia" id="materia" value="<?php echo $row["materia"];?>" required>
-                                                </p>
-                                                <p>
-                                                    <label for="Fecha">Fecha:</label>
-                                                    <input type="date" name="fecha" id="fecha" value="<?php echo $row["fecha"];?>" format required>
-                                                </p>
-                                                <p>
-                                                    <label for="Descripcion">Discripcion de la clase:</label>
-                                                    <input type="text" name="descripcion" value="<?php echo $row["descripcion"];?>" required>
-                                                </p>
+                                                <div class="row" id="modalModificar">
+                                                    <div class="col-md-4 col-sm-4 col-xs-4">
+                                                        <label for="Materia">Materia:</label>
+                                                    </div>
+                                                    <div class="col-md-8 col-sm-8 col-xs-8">
+                                                        <input type="text" name="materia" id="materia" value="<?php echo $row["materia"];?>" required>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4 col-sm-4 col-xs-4">
+                                                        <label for="Fecha">Fecha:</label>
+                                                    </div>
+                                                    <div class="col-md-8 col-sm-8 col-xs-8">
+                                                        <input type="date" name="fecha" id="fecha" value="<?php echo $row["fecha"];?>" format required>  
+                                                    </div>
+                                                </div>  
+                                                <div class="row" id="modalModificar">
+                                                    <div class="col-md-4 col-sm-4 col-xs-4">
+                                                        <label for="Descripcion">Discripcion de la clase:</label> 
+                                                    </div>
+                                                    <div class="col-md-8 col-sm-8 col-xs-8">
+                                                        <input type="text" name="descripcion" value="<?php echo $row["descripcion"];?>" required>  
+                                                    </div>
+                                                </div>   
                                             </div>
                                             <div class="modal-footer">
                                                 <input type="hidden" name="id" value="<?php echo $row["id"];?>">
@@ -137,6 +161,7 @@
                                         </form> 
                                     </div>
                                 </div>
+                    <!-------------------- Fin Modificar --------------------->
                             </div>
                         </th>
                     
