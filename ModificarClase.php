@@ -8,7 +8,7 @@
     $query="UPDATE clase SET materia='$materia',descripcion='$descripcion',fecha='$fecha' WHERE id=$id";
     if ($conexion->query($query) === TRUE) {
         // echo "Solicitud enviada correctamente";
-        include "menuLogin.php";
+        header("location: menuLogin.php");
     }
     else{
         echo "error";

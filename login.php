@@ -10,6 +10,6 @@
     else{
         session_start();
         $_SESSION["USUARIO"] = $usuario;
-        include_once "menuLogin.php";
+        header ("location: menuLogin.php");
     }
 ?>

@@ -7,6 +7,6 @@
         echo "error";
     }
     else{
-        include("menuLogin.php");
+        header("location:menuLogin.php");
     }
 ?>

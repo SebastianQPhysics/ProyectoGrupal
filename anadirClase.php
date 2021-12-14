@@ -10,7 +10,7 @@
         $query="INSERT INTO clase( materia,descripcion,fecha,correo) VALUES ('$materia','$descripcion','$fecha','$correo')";
         if ($conexion->query($query) === TRUE) {
             // echo "Solicitud enviada correctamente";
-            include "menuLogin.php";
+            header("location: menuLogin.php");
         }
         else{
             echo "error";
