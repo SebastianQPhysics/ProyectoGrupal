@@ -1,5 +1,9 @@
 <?php
     session_start();
+    $busqueda=$_POST['busqueda'];
+    if(empty($busqueda)){
+        header("location: menuLogin.php");
+    }
 ?>
 
 <html>
@@ -123,7 +127,7 @@
                             </thead>
                             <?php 
                                 include ("conexion.php");
-                                foreach($conexion->query("SELECT materia,descripcion,fecha,id FROM clase WHERE correo='$correo'") as $row) {
+                                foreach($conexion->query("SELECT materia,descripcion,fecha,id FROM clase WHERE correo='$correo' AND UPPER(materia) = UPPER('$busqueda')") as $row) {
                             ?>
                             <tr>
                                 <form action="eliminarClase.php" method="POST">

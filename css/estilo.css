@@ -1,20 +1,21 @@
 :root{
-    --sidebbar: #4545eb;     /* color del sidebar */
-    --head: #ff0000;         /* color del head */
-    --body:#ffffff;          /*color del body*/
+    --sidebbarback: #3b3b57;     /* color del fondo sidebar */
+    --headback: #ff0000;         /* color del fondo head */
+    --bodyback:#ffffff;          /*color del fondo body*/
 }
 
 body{
-    background-color: var(--body);
+    background-color: var(--bodyback);
 }
 header{
     padding: 25px;
-    background: var(--head);
+    background: var(--headback);
 }
 header a{
     text-decoration: none;
     /* padding: 10px 15px; */
     color: black;
+    font-size: 125%;
 }
 .principal{
     margin-left: 100px;
@@ -22,17 +23,19 @@ header a{
     /* background: rgb(22, 162, 204); */
 }
 .row .bg-primary{ 
-    background-color: var(--sidebbar) !important;
+    background-color: var(--sidebbarback) !important;
 }
 #sidebar-container{
     min-height: 100vh;
 }
 #sidebar-container .menu{
-    width: 18rem;
+    width: 100%;
+}
+#sidebar-container a{
+    font-size: 110%;
 }
 #sidebar-container a:hover{
     text-decoration: none;
-    tex
 }
 /* <--------------Botones--------------> */
 .botonAnadir{
@@ -59,4 +62,10 @@ img{
 
 #modalModificar{
     margin-top: 10px;
+}
+
+.buscar{
+    margin-left: 100px;
+    margin-bottom: 20px;
+    /* background: rgb(4, 64, 82); */
 }

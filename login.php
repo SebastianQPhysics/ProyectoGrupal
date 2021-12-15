@@ -2,9 +2,10 @@
     include_once 'conexion.php';
     $usuario=$_POST["usuario"];
     $contrasenia=$_POST["contrasenia"];
-    $sql="SELECT nombre FROM usuario WHERE nombre LIKE '$usuario' and contrasenia LIKE '$contrasenia'";
+    $sql="SELECT correo,count(correo) FROM usuario WHERE correo ='$usuario' and contrasenia = '$contrasenia'";
     $resultado=$conexion->query($sql);
-    if ($resultado === NULL) {
+    $fila = $resultado->fetch_row();
+    if ($fila[1] == 0) {
         include_once "index.php";
     }
     else{
