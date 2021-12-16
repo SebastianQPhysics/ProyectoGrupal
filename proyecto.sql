@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-12-2021 a las 04:04:39
+-- Tiempo de generación: 16-12-2021 a las 22:01:52
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -40,11 +40,11 @@ CREATE TABLE `clase` (
 --
 
 INSERT INTO `clase` (`id`, `materia`, `descripcion`, `fecha`, `correo`) VALUES
-(25, 'a', 'a', '2021-12-08', 'a@a'),
-(27, 'a', 'a', '2021-11-30', 'a@a'),
-(28, 'a', 'a', '2021-11-30', 'a@a'),
-(29, 'a', 'a', '2021-11-30', 'a@a'),
-(30, 'asdads', 'asdasdasd', '2021-12-14', 'admin@admin');
+(25, 'a', 'a', '2021-12-08', 'b@b'),
+(27, 'a', 'a', '2021-11-30', 'b@b'),
+(28, 'a', 'a', '2021-11-30', 'b@b'),
+(29, 'a', 'a', '2021-11-30', 'b@b'),
+(39, 'asdads', 'a', '2021-12-01', 'admin@admin');
 
 -- --------------------------------------------------------
 
@@ -54,7 +54,7 @@ INSERT INTO `clase` (`id`, `materia`, `descripcion`, `fecha`, `correo`) VALUES
 
 CREATE TABLE `usuario` (
   `correo` varchar(30) NOT NULL,
-  `contrasenia` varchar(30) NOT NULL
+  `contrasenia` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -62,8 +62,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`correo`, `contrasenia`) VALUES
-('a@a', 'a'),
-('admin@admin', '12345');
+('admin@admin', '12345'),
+('b@b', 'a');
 
 --
 -- Índices para tablas volcadas
@@ -90,7 +90,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `clase`
 --
 ALTER TABLE `clase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
