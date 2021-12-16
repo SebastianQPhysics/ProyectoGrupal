@@ -2,6 +2,7 @@
     --sidebbarback: #3b3b57;     /* color del fondo sidebar */
     --headback: #ff0000;         /* color del fondo head */
     --bodyback:#ffffff;          /*color del fondo body*/
+    --letraHead: #000;           /*color de letras del head*/
 }
 
 body{
@@ -14,7 +15,7 @@ header{
 header a{
     text-decoration: none;
     /* padding: 10px 15px; */
-    color: black;
+    color: var(--letraHead);
     font-size: 125%;
 }
 .principal{
@@ -68,4 +69,20 @@ img{
     margin-left: 100px;
     margin-bottom: 20px;
     /* background: rgb(4, 64, 82); */
+}
+
+#perfilModificar h1{
+    margin-top: 20px;
+}
+#perfilModificar h3{
+   color:red;
+}
+#btnModificarCorreo{
+    margin-left: 30px;
+    margin-top: 50px;
+}
+#btnModificarPass{
+    margin-left: 300px;
+    margin-top: -54px;
+    position: absolute;
 }

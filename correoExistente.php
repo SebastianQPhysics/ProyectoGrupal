@@ -52,6 +52,7 @@
             </div>
             <div class="col-md-10 col-sm-10 col-xs-10" id="perfilModificar">
                 <h1>Modificar Perfil</h1>
+                <h3>Error en cambiar Correo</h3>
                 <form action="modificarCorreo.php" method="post">
                     <button type="button" class="btn btn-primary" id="btnModificarCorreo" data-toggle="modal" data-target="#modificarCorreo">Modificar Correo</img></button>   
                     <div class="modal" id="modificarCorreo" tabindex="-1" role="dialog">
