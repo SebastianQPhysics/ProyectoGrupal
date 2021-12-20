@@ -56,7 +56,12 @@ header a{
     margin-right: 100px;
     /* background: rgb(91, 179, 51); */
 }
-img{
+.fotoPerfil{
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.imgAccion{
     max-width: 25px;
     max-height: 25px;
 }
@@ -74,7 +79,7 @@ img{
 #perfilModificar h1{
     margin-top: 20px;
 }
-#perfilModificar h3{
+#perfilModificar .error{
    color:red;
 }
 #btnModificarCorreo{
@@ -86,3 +91,28 @@ img{
     margin-top: -54px;
     position: absolute;
 }
+
+
+#perfilModificar label{
+    font-size: 90%;
+    
+}
+#perfilModificar input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: 0px;
+    width: 300px;
+}
+
+/* .modificarApellido{
+    position: absolute;
+    margin-top: -55px;
+    margin-left: 350px;
+}
+
+.modificarRut{
+    position: absolute;
+    margin-top: -55px;
+    margin-left: 700px;
+} */

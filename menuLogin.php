@@ -134,7 +134,7 @@
                                     <th>
                                         <!-------------------Eliminar ----------------------->
                                         <input type="hidden" name="id" value="<?php echo $row["id"];?>">
-                                        <button type="button" class="botonAccion" data-toggle="modal" data-target="#eliminar"><img src="icono/eliminar.png" ></img></button>   
+                                        <button type="button" class="botonAccion" data-toggle="modal" data-target="#eliminar"><img class="imgAccion" src="icono/eliminar.png" ></img></button>   
                                         <div class="modal" id="eliminar" tabindex="-1" role="dialog">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -151,7 +151,7 @@
                                         </div>
                                 </form>
                                     <!-------------------- Modificar --------------------->
-                                    <button type="buttom" class="botonAccion" data-toggle="modal" data-target="#modificar"><img src="icono/modificar.png" ></img></button>
+                                    <button type="buttom" class="botonAccion" data-toggle="modal" data-target="#modificar"><img class="imgAccion" src="icono/modificar.png" ></img></button>
                                     <div class="modal" id="modificar" tabindex="-1" role="dialog">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">

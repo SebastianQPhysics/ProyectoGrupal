@@ -30,7 +30,7 @@
                         <div class="header-top-right">
                             <a>
                                 <?php
-                                    
+                                    $correo=$_SESSION['USUARIO'];
                                     echo "Usuario: ",$correo;
                                 ?>
                             </a>
@@ -39,9 +39,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-4">
                         <div class="header-top-right text-right">
 
-                            <img class="fotoPerfil"src="data:image/jpg;base64,<?php echo base64_encode($_SESSION["FOTO"]); ?>">
-                            <a href="cerrarSesion.php">Cerrar sesion</a>
-                                
+                                <a href="cerrarSesion.php">Cerrar sesion</a>
                             
                         </div>
                     </div>
@@ -59,6 +57,8 @@
             </div>
             <div class="col-md-10 col-sm-10 col-xs-10" id="perfilModificar">
                 <h1>Modificar Perfil</h1>
+                <hr size="2px" color="black"/>
+                <h3 class="error">Hubo un error verifique los datos</h3>
                 <hr size="2px" color="black"/>
                 <h3>Datos</h3>             
                 <form action="modificarPerfil.php" method="post" enctype="multipart/form-data">
