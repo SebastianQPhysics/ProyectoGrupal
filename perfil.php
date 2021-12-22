@@ -26,11 +26,12 @@
         <header>
             <div class="container" >
                 <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-8">
+                    <div class="col-md-8 col-sm-8 col-xs-8 d-flex justify-items-between align-items-center">
+                        <a href="index.php"><img class="mr-4" src="imagen/logo1.png" style="height: 75px"></a>
                         <div class="header-top-right">
                             <a>
                                 <?php
-                                    
+                                    $correo=$_SESSION['USUARIO'];
                                     echo "Usuario: ",$correo;
                                 ?>
                             </a>
@@ -41,8 +42,7 @@
 
                             <img class="fotoPerfil"src="data:image/jpg;base64,<?php echo base64_encode($_SESSION["FOTO"]); ?>">
                             <a href="cerrarSesion.php">Cerrar sesion</a>
-                                
-                            
+
                         </div>
                     </div>
                 </div>

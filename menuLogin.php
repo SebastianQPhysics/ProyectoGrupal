@@ -1,5 +1,9 @@
 <?php
     session_start();
+
+    if (!isset($_SESSION['USUARIO'])){
+        header ("location: index.php");
+    }
 ?>
 
 <html>
@@ -18,29 +22,31 @@
     </head>
     
     <body>
-        <header>
-            <div class="container" >
-                <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-8">
-                        <div class="header-top-right">
-                            <a>
-                                <?php
-                                    $correo=$_SESSION['USUARIO'];
-                                    echo "Usuario: ",$correo;
-                                ?>
-                            </a>
-                        </div>
+    <header>
+        <div class="container" >
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-8 d-flex justify-items-between align-items-center">
+                    <a href="index.php"><img class="mr-4" src="imagen/logo1.png" style="height: 75px"></a>
+                    <div class="header-top-right">
+                        <a>
+                            <?php
+                                $correo=$_SESSION['USUARIO'];
+                                echo "Usuario: ",$correo;
+                            ?>
+                        </a>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-4">
-                        <div class="header-top-right text-right">
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div class="header-top-right text-right">
 
-                                <a href="cerrarSesion.php">Cerrar sesion</a>
-                            
-                        </div>
+                        <img class="fotoPerfil"src="data:image/jpg;base64,<?php echo base64_encode($_SESSION["FOTO"]); ?>">
+                        <a href="cerrarSesion.php">Cerrar sesion</a>
+
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
         <div class="row">
             <div class="col-md-2 col-sm-2 col-xs-2">
                 <div id="sidebar-container" class="bg-primary">
@@ -88,7 +94,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-4">
-                                                <label for="Descripcion">Discripcion de la clase:</label>
+                                                <label for="Descripcion">Descripcion de la clase:</label>
                                             </div>
                                             <div class="col-md-8 col-sm-8 col-xs-8">
                                                 <input type="text" name="descripcion" required>
@@ -116,7 +122,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Materia</th>
-                                    <th>Discripcion de la clase</th>
+                                    <th>Descripcion de la clase</th>
                                     <th>Fecha</th>
                                     <th>Acción</th>
                                 </tr>

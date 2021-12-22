@@ -6,7 +6,8 @@
     $resultado=$conexion->query($sql);
     $fila = $resultado->fetch_row();
     if ($fila[1] == 0) {
-        include_once "index.php";
+        $_SESSION['loginError'] = 'Nombre o contrasena incorrecta';
+        header('Location:index.php');
     }
     else{
         session_start();

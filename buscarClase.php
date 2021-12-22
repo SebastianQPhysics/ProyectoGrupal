@@ -25,7 +25,8 @@
         <header>
             <div class="container" >
                 <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-8">
+                    <div class="col-md-8 col-sm-8 col-xs-8 d-flex justify-items-between align-items-center">
+                        <a href="index.php"><img class="mr-4" src="imagen/logo1.png" style="height: 75px"></a>
                         <div class="header-top-right">
                             <a>
                                 <?php
@@ -38,8 +39,9 @@
                     <div class="col-md-4 col-sm-4 col-xs-4">
                         <div class="header-top-right text-right">
 
-                                <a href="cerrarSesion.php">Cerrar sesion</a>
-                            
+                            <img class="fotoPerfil"src="data:image/jpg;base64,<?php echo base64_encode($_SESSION["FOTO"]); ?>">
+                            <a href="cerrarSesion.php">Cerrar sesion</a>
+
                         </div>
                     </div>
                 </div>
@@ -92,7 +94,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-4">
-                                                <label for="Descripcion">Discripcion de la clase:</label>
+                                                <label for="Descripcion">Descripcion de la clase:</label>
                                             </div>
                                             <div class="col-md-8 col-sm-8 col-xs-8">
                                                 <input type="text" name="descripcion" required>
@@ -120,14 +122,14 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Materia</th>
-                                    <th>Discripcion de la clase</th>
+                                    <th>Descripcion de la clase</th>
                                     <th>Fecha</th>
                                     <th>Acción</th>
                                 </tr>
                             </thead>
                             <?php 
                                 include ("conexion.php");
-                                foreach($conexion->query("SELECT materia,descripcion,fecha,id FROM clase WHERE correo='$correo' AND UPPER(materia) = UPPER('$busqueda')") as $row) {
+                                foreach($conexion->query("SELECT materia,descripcion,fecha,id FROM clase WHERE correo='$correo' AND materia LIKE'%$busqueda%'") as $row) {
                             ?>
                             <tr>
                                 <form action="eliminarClase.php" method="POST">
@@ -138,7 +140,7 @@
                                     <th>
                                         <!-------------------Eliminar ----------------------->
                                         <input type="hidden" name="id" value="<?php echo $row["id"];?>">
-                                        <button type="button" class="botonAccion" data-toggle="modal" data-target="#eliminar"><img src="icono/eliminar.png" ></img></button>   
+                                        <button type="button" class="botonAccion" data-toggle="modal" data-target="#eliminar"><img class="imgAccion" src="icono/eliminar.png" ></img></button>   
                                         <div class="modal" id="eliminar" tabindex="-1" role="dialog">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -155,7 +157,7 @@
                                         </div>
                                 </form>
                                     <!-------------------- Modificar --------------------->
-                                    <button type="buttom" class="botonAccion" data-toggle="modal" data-target="#modificar"><img src="icono/modificar.png" ></img></button>
+                                    <button type="buttom" class="botonAccion" data-toggle="modal" data-target="#modificar"><img class="imgAccion" src="icono/modificar.png" ></img></button>
                                     <div class="modal" id="modificar" tabindex="-1" role="dialog">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
