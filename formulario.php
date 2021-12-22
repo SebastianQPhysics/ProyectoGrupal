@@ -66,7 +66,7 @@
                     
                     <p class="text-muted mb-5">Ingresa la siguiente información para registrarte.</p>
 
-                    <form action="crud/registrarUsuario.php" method="POST">
+                    <form action="crud/registrarUsuario.php" method="POST" enctype="multipart/form-data">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Correo Electronico</label>
                         <input type="email" class="form-control" id="correo" aria-describedby="emailHelp" placeholder="Enter email" name="correo" required>
@@ -112,6 +112,11 @@
                         <div class="form-group mb-3">
                             <label class="font-weight-bold">Profesion<span class="text-danger">*</span></label>
                             <input type="text" id="profesion" class="form-control" placeholder="Ingresa tu profesion" name="profesion" required>
+                        </div>
+                        <div class="form-group mb-3">
+                        <label class="direccion">Foto de Perfil</label>
+                            <br>
+                            <input type="file" class="form-control" placeholder="Foto de perfil" name="foto" required>
                         </div>
             
                         <button type="submit" class="btn btn-primary width-100">Regístrate</button>

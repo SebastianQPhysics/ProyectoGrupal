@@ -47,9 +47,7 @@
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
           
-            <li class="nav-item">
-              <a class="nav-link" href="contacto.php">Contacto</a>
-            </li>
+      
         
               <?php
                 nombreUsuario(); 
@@ -72,13 +70,13 @@
       <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="imagen/img1.jpg" alt="Noticia 1">
+            <img class="d-block w-100" src="imagen/1200x630_blog_webMAESTROONLINE.png" alt="Noticia 1">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="imagen/img2.jpg" alt="Noticia 2">
+            <img class="d-block w-100" src="imagen/5fb287d7df964.jpeg" alt="Noticia 2">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="imagen/img3.jpg" alt="Noticia 3">
+            <img class="d-block w-100" src="imagen/cursos-online-portada.jpg" alt="Noticia 3">
           </div>
         </div>
         <div class="overlay">

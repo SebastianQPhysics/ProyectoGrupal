@@ -10,9 +10,12 @@
 
         }
         else{
+            
+            $foto= addslashes(file_get_contents($_FILES["foto"]["tmp_name"]));
+              
             $SELECT = sprintf('SELECT correo from usuario where correo = "%s" limit 1', $_POST['correo']);
             $INSERT = sprintf(
-                'INSERT INTO usuario (correo,contrasenia,nombre,apellido,rut,direccion,fehcaNacimiento,profesion) values ("%s","%s","%s","%s","%s","%s","%s","%s")',
+                'INSERT INTO usuario (correo,contrasenia,nombre,apellido,rut,direccion,fehcaNacimiento,profesion,fotoPerfil) values ("%s","%s","%s","%s","%s","%s","%s","%s","%s")',
                 $_POST['correo'],
                 $_POST['contraseña'],
                 $_POST['nombre'],
@@ -20,11 +23,17 @@
                 $_POST['rut'],
                 $_POST['direccion'],
                 $_POST['nacimiento'],
-                $_POST['profesion']
+                $_POST['profesion'],
+                $foto
             );
             $result = $conexion->query($SELECT);
             if ($result->num_rows == 0 ){
                 if ($conexion->query($INSERT)){
+                    $_SESSION["USUARIO"]=$_POST["correo"];
+                    $sql="SELECT fotoPerfil FROM usuario WHERE correo ='$correo'";
+                    $resultado=$conexion->query($sql);
+                    $fila = $resultado->fetch_row();
+                    $_SESSION["FOTO"] =$fila[0];
                     header('Location:../index.php');
                     exit();
                 }
