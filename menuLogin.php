@@ -131,82 +131,82 @@
                                 include ("conexion.php");
                                 foreach($conexion->query("SELECT materia,descripcion,fecha,id FROM clase WHERE correo='$correo'") as $row) {
                             ?>
-                            <tr>
-                                <form action="eliminarClase.php" method="POST">
-                                    <th><?php echo $row["id"];?></th>
-                                    <th><?php echo $row["materia"];?></th>
-                                    <th><?php echo $row["descripcion"];?></th>
-                                    <th><?php echo $row["fecha"];?></th>
-                                    <th>
-                                        <!-------------------Eliminar ----------------------->
-                                        <input type="hidden" name="id" value="<?php echo $row["id"];?>">
-                                        <button type="button" class="botonAccion" data-toggle="modal" data-target="#eliminar"><img class="imgAccion" src="icono/eliminar.png" ></img></button>   
-                                        <div class="modal" id="eliminar" tabindex="-1" role="dialog">
+                                <tr>
+                                    <form action="eliminarClase.php" method="POST">
+                                        <th><?php echo $row["id"];?></th>
+                                        <th><?php echo $row["materia"];?></th>
+                                        <th><?php echo $row["descripcion"];?></th>
+                                        <th><?php echo $row["fecha"];?></th>
+                                        <th>
+                                            <!-------------------Eliminar ----------------------->
+                                            <input type="hidden" name="id" value="<?php echo $row["id"];?>">
+                                            <button type="button" class="botonAccion" data-toggle="modal" data-target="#eliminar"><img class="imgAccion" src="icono/eliminar.png" ></img></button>   
+                                            <div class="modal" id="eliminar" tabindex="-1" role="dialog">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">¿Desea Confirmar?</h5>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </form>
+                                        <!-------------------- Modificar --------------------->
+                                        <button type="buttom" class="botonAccion" data-toggle="modal" data-target="#modificar<?php echo $row["id"];?>"><img class="imgAccion" src="icono/modificar.png" ></img></button>
+                                        <div class="modal" id="modificar<?php echo $row["id"];?>" tabindex="-1" role="dialog">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">¿Desea Confirmar?</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">Modificar Clase</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-primary">Confirmar</button>
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </form>
-                                    <!-------------------- Modificar --------------------->
-                                    <button type="buttom" class="botonAccion" data-toggle="modal" data-target="#modificar"><img class="imgAccion" src="icono/modificar.png" ></img></button>
-                                    <div class="modal" id="modificar" tabindex="-1" role="dialog">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Modificar Clase</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <form action="ModificarClase.php" method="POST">
-                                                    <div class="modal-body">
-                                                        <div class="row" id="modalModificar">
-                                                            <div class="col-md-4 col-sm-4 col-xs-4">
-                                                                <label for="Materia">Materia:</label>
+                                                    <form action="ModificarClase.php" method="POST">
+                                                        <div class="modal-body">
+                                                            <div class="row" id="modalModificar">
+                                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                    <label for="Materia">Materia:</label>
+                                                                </div>
+                                                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                                                    <input type="text" name="materia" id="materia" value="<?php echo $row["materia"];?>" required>
+                                                                </div>
                                                             </div>
-                                                            <div class="col-md-8 col-sm-8 col-xs-8">
-                                                                <input type="text" name="materia" id="materia" value="<?php echo $row["materia"];?>" required>
-                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                    <label for="Fecha">Fecha:</label>
+                                                                </div>
+                                                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                                                    <input type="date" name="fecha" id="fecha" value="<?php echo $row["fecha"];?>" format required>  
+                                                                </div>
+                                                            </div>  
+                                                            <div class="row" id="modalModificar">
+                                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                    <label for="Descripcion">Discripcion de la clase:</label> 
+                                                                </div>
+                                                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                                                    <input type="text" name="descripcion" value="<?php echo $row["descripcion"];?>" required>  
+                                                                </div>
+                                                            </div>   
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-sm-4 col-xs-4">
-                                                                <label for="Fecha">Fecha:</label>
-                                                            </div>
-                                                            <div class="col-md-8 col-sm-8 col-xs-8">
-                                                                <input type="date" name="fecha" id="fecha" value="<?php echo $row["fecha"];?>" format required>  
-                                                            </div>
-                                                        </div>  
-                                                        <div class="row" id="modalModificar">
-                                                            <div class="col-md-4 col-sm-4 col-xs-4">
-                                                                <label for="Descripcion">Discripcion de la clase:</label> 
-                                                            </div>
-                                                            <div class="col-md-8 col-sm-8 col-xs-8">
-                                                                <input type="text" name="descripcion" value="<?php echo $row["descripcion"];?>" required>  
-                                                            </div>
-                                                        </div>   
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <input type="hidden" name="id" value="<?php echo $row["id"];?>">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                        <button type="submit" class="btn btn-primary">Confirmar</button>
-                                                    </div>
-                                                </form> 
+                                                        <div class="modal-footer">
+                                                            <input type="hidden" name="id" value="<?php echo $row["id"];?>">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                                                        </div>
+                                                    </form> 
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                        <!-------------------- Fin Modificar --------------------->
-                                </th>
-                                
-                            </tr>
+                                            <!-------------------- Fin Modificar --------------------->
+                                    </th>
+                                    
+                                </tr>
                             <?php } ?>
                 </table>
                 </div>

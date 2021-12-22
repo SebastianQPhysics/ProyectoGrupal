@@ -157,8 +157,8 @@
                                         </div>
                                 </form>
                                     <!-------------------- Modificar --------------------->
-                                    <button type="buttom" class="botonAccion" data-toggle="modal" data-target="#modificar"><img class="imgAccion" src="icono/modificar.png" ></img></button>
-                                    <div class="modal" id="modificar" tabindex="-1" role="dialog">
+                                    <button type="buttom" class="botonAccion" data-toggle="modal" data-target="#modificar<?php echo $row["id"];?>"><img class="imgAccion" src="icono/modificar.png" ></img></button>
+                                    <div class="modal" id="modificar<?php echo $row["id"];?>" tabindex="-1" role="dialog">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
